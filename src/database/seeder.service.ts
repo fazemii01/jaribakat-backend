@@ -41,22 +41,8 @@ export class SeederService implements OnApplicationBootstrap {
   ) {}
 
   async onApplicationBootstrap() {
-    this.logger.log('Executing complete database seeder with direct MinIO storage bucket uploads...');
+    this.logger.log('Seeder script disabled as requested.');
     await this.syncFavicons();
-    await this.seedUser();
-    await this.seedSiteSettings();
-    await this.seedBanners();
-    await this.seedTopics();
-    await this.seedUSPs();
-    await this.seedPrograms();
-    await this.seedEvents();
-    await this.seedVideoCourses();
-    await this.seedCommunities();
-    await this.seedFAQs();
-    await this.seedPages();
-    await this.seedFooter();
-    await this.cleanAndUploadAllAssetsToMinIO();
-    this.logger.log('Database seeding & MinIO uploads finished successfully!');
   }
 
   private async syncFavicons() {
