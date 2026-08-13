@@ -18,7 +18,7 @@ import { FAQsModule } from './faqs/faqs.module';
 import { PagesModule } from './pages/pages.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { FooterModule } from './footer/footer.module';
-import { SeederService } from './database/seeder.service';
+// import { SeederService } from './database/seeder.service';
 
 @Module({
   imports: [
@@ -55,6 +55,7 @@ import { SeederService } from './database/seeder.service';
     FooterModule,
   ],
   controllers: [AppController],
-  providers: [AppService, SeederService],
+  providers: [AppService],
+  // providers: [AppService, SeederService],
 })
 export class AppModule {}
