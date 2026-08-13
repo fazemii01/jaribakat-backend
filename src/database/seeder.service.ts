@@ -205,7 +205,7 @@ export class SeederService implements OnApplicationBootstrap {
   private async seedUser() {
     const admin = await this.usersService.findByEmail('admin@jaribakat.com');
     if (!admin) {
-      const hashedPassword = await bcrypt.hash('admin123456', 10);
+      const hashedPassword = await bcrypt.hash('jaribakatadmin@1', 10);
       await this.usersService.create({
         name: 'Admin JariBakat',
         email: 'admin@jaribakat.com',
