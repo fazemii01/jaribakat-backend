@@ -28,6 +28,10 @@ export class CreateProgramDto {
 
   @IsString()
   @IsOptional()
+  subCategory?: string;
+
+  @IsString()
+  @IsOptional()
   speaker?: string;
 
   @IsString()

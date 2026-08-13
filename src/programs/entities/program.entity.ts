@@ -33,6 +33,9 @@ export class Program {
   })
   category: ProgramCategory;
 
+  @Column({ nullable: true, default: 'Webinar & Workshop' })
+  subCategory: string;
+
   @Column({ default: 'Tim Konsultan JariBakat' })
   speaker: string;
 

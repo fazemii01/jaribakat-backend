@@ -2,7 +2,7 @@ import { Controller, Post, UseInterceptors, UploadedFile, BadRequestException, U
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiConsumes, ApiBody, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { UploadService } from './upload.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { AdminAuthGuard } from '../auth/admin-auth.guard';
 
 @ApiTags('Upload')
 @Controller('upload')
@@ -11,7 +11,7 @@ export class UploadController {
 
   @ApiOperation({ summary: 'Upload file to MinIO storage' })
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(AdminAuthGuard)
   @Post()
   @ApiConsumes('multipart/form-data')
   @ApiBody({
