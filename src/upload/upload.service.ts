@@ -34,7 +34,7 @@ export class UploadService implements OnModuleInit {
         Statement: [
           {
             Effect: 'Allow',
-            Principal: { AWS: ['*'] },
+            Principal: '*',
             Action: ['s3:GetObject'],
             Resource: [`arn:aws:s3:::${this.bucketName}/*`],
           },
@@ -45,6 +45,10 @@ export class UploadService implements OnModuleInit {
     } catch (err) {
       this.logger.warn(`MinIO bucket policy setup notice: ${err?.message || err}`);
     }
+  }
+
+  async getFileStream(objectName: string) {
+    return this.minioClient.getObject(this.bucketName, objectName);
   }
 
   async uploadBuffer(buffer: Buffer, originalName: string, mimetype = 'image/png', folder = 'uploads'): Promise<string> {
