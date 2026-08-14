@@ -1,7 +1,7 @@
 import { Controller, Post, Get, Req, Res, UseInterceptors, UploadedFile, BadRequestException, NotFoundException, UseGuards } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiConsumes, ApiBody, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
-import { Response, Request } from 'express';
+import type { Request, Response } from 'express';
 import { UploadService } from './upload.service';
 import { AdminAuthGuard } from '../auth/admin-auth.guard';
 
@@ -34,11 +34,13 @@ export class UploadController {
 
   @ApiOperation({ summary: 'Stream/view file from MinIO storage' })
   @Get('file/*')
-  async getFile(@Req() req: Request, @Res() res: Response) {
-    const objectName = req.params[0];
+  async getFile(@Req() req: any, @Res() res: any) {
+    const request = req as Request;
+    const response = res as Response;
+    const objectName = request.params[0];
     try {
       const stream = await this.uploadService.getFileStream(objectName);
-      stream.pipe(res);
+      stream.pipe(response);
     } catch {
       throw new NotFoundException('File not found');
     }
