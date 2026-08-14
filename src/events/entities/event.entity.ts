@@ -54,6 +54,9 @@ export class Event {
   @Column({ nullable: true })
   badge: string;
 
+  @Column({ nullable: true })
+  topic: string;
+
   @Column({ default: 'https://wa.me/6285196235285' })
   href: string;
 

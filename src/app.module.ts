@@ -18,6 +18,7 @@ import { FAQsModule } from './faqs/faqs.module';
 import { PagesModule } from './pages/pages.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { FooterModule } from './footer/footer.module';
+import { TestimonialsModule } from './testimonials/testimonials.module';
 // import { SeederService } from './database/seeder.service';
 
 @Module({
@@ -53,6 +54,7 @@ import { FooterModule } from './footer/footer.module';
     PagesModule,
     NavigationModule,
     FooterModule,
+    TestimonialsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

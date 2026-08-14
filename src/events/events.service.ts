@@ -12,10 +12,11 @@ export class EventsService {
     private readonly eventRepository: Repository<Event>,
   ) {}
 
-  async findAll(category?: EventCategory, activeOnly = false): Promise<Event[]> {
+  async findAll(category?: EventCategory, activeOnly = false, topic?: string): Promise<Event[]> {
     const where: any = {};
     if (category) where.category = category;
     if (activeOnly) where.isActive = true;
+    if (topic) where.topic = topic;
 
     return this.eventRepository.find({
       where,

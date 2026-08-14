@@ -56,6 +56,10 @@ export class CreateEventDto {
 
   @IsString()
   @IsOptional()
+  topic?: string;
+
+  @IsString()
+  @IsOptional()
   href?: string;
 
   @IsNumber()

@@ -16,8 +16,9 @@ export class EventsController {
   async findAll(
     @Query('category') category?: EventCategory,
     @Query('activeOnly') activeOnly?: string,
+    @Query('topic') topic?: string,
   ) {
-    return this.eventsService.findAll(category, activeOnly === 'true');
+    return this.eventsService.findAll(category, activeOnly === 'true', topic);
   }
 
   @ApiOperation({ summary: 'Get single event by ID' })
