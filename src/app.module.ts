@@ -20,7 +20,8 @@ import { NavigationModule } from './navigation/navigation.module';
 import { FooterModule } from './footer/footer.module';
 import { TestimonialsModule } from './testimonials/testimonials.module';
 import { RegistrationsModule } from './registrations/registrations.module';
-// import { SeederService } from './database/seeder.service';
+import { ArticlesModule } from './articles/articles.module';
+import { SeederService } from './database/seeder.service';
 
 @Module({
   imports: [
@@ -57,9 +58,9 @@ import { RegistrationsModule } from './registrations/registrations.module';
     FooterModule,
     TestimonialsModule,
     RegistrationsModule,
+    ArticlesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
-  // providers: [AppService, SeederService],
+  providers: [AppService, SeederService],
 })
 export class AppModule {}
